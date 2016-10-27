@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { MyTeamsPage, TournamentsPage } from "../pages/pages";
+import { MyTeamsPage, StandingsPage, TeamDetailPage, TeamHomePage, TeamsPage, TournamentsPage } from "../pages/pages";
 
 @NgModule({
   declarations: [
     MyApp,
     MyTeamsPage,
+    StandingsPage,
+    TeamDetailPage,
+    TeamHomePage,
+    TeamsPage,
     TournamentsPage
   ],
   imports: [
@@ -16,6 +20,10 @@ import { MyTeamsPage, TournamentsPage } from "../pages/pages";
   entryComponents: [
     MyApp,
     MyTeamsPage,
+    StandingsPage,
+    TeamDetailPage,
+    TeamHomePage,
+    TeamsPage,
     TournamentsPage
   ],
   providers: []
