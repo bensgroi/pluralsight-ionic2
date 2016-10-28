@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
+
 import { MyTeamsPage, StandingsPage, TeamDetailPage, TeamHomePage, TeamsPage, TournamentsPage } from "../pages/pages";
+import { EliteApi } from "../shared/shared";
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { MyTeamsPage, StandingsPage, TeamDetailPage, TeamHomePage, TeamsPage, To
     TeamsPage,
     TournamentsPage
   ],
-  providers: []
+  providers: [
+    EliteApi
+  ]
 })
 export class AppModule {}

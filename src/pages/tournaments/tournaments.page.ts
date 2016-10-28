@@ -1,17 +1,35 @@
 import { Component } from "@angular/core";
-import { NavController } from "ionic-angular";
+import { LoadingController, NavController } from "ionic-angular";
 
 import { TeamsPage } from "../pages";
+import { EliteApi } from "../../shared/shared";
 
 @Component({
     templateUrl: "tournaments.page.html"
 })
 export class TournamentsPage {
-    constructor (private nav: NavController) {
-        
+    tournaments: any;
+
+    constructor (
+        private nav: NavController, 
+        private eliteApi: EliteApi,
+        private loadingController: LoadingController) {
     }
 
-    itemTapped() {
-        this.nav.push(TeamsPage);
+    itemTapped($event, tourney) {
+        this.nav.push(TeamsPage, tourney);
+    }
+
+    ionViewDidLoad() {
+        let loader = this.loadingController.create({
+            content: "Getting tournaments..."
+        });
+
+        loader.present().then(() => {
+            this.eliteApi.getTournaments().then(data => {
+                this.tournaments = data
+                loader.dismiss();
+            });
+        });
     }
 }
